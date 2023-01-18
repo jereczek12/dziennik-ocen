@@ -1,7 +1,6 @@
 package jereczek.dziennikocen.tables.prowadzacy;
 
 import jakarta.transaction.Transactional;
-import jereczek.dziennikocen.tables.student.Student;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -9,12 +8,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 @Slf4j
 @Transactional
 public class ProwadzacyServiceImpl implements ProwadzacyService {
-    ProwadzacyRepo prowadzacyRepo;
+    private final ProwadzacyRepo prowadzacyRepo;
 
     @Override
     public Prowadzacy addProwadzacy(Prowadzacy prowadzacy) {

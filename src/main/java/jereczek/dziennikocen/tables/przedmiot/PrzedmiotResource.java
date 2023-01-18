@@ -37,8 +37,8 @@ public class PrzedmiotResource {
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
-                        .data(Map.of("ocena", przedmiotService.listPrzedmioty(20)))
-                        .message("oceny retrieved")
+                        .data(Map.of("przedmioty", przedmiotService.listPrzedmioty(20)))
+                        .message("przedmiot retrieved")
                         .status(HttpStatus.OK)
                         .statusCode(HttpStatus.OK.value())
                         .build()

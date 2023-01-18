@@ -2,7 +2,6 @@ package jereczek.dziennikocen.tables.prowadzacy;
 
 import jakarta.validation.Valid;
 import jereczek.dziennikocen.domain.Response;
-import jereczek.dziennikocen.tables.ocena.Ocena;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -56,7 +55,7 @@ public class ProwadzacyResource {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Response> deleteOcena(@PathVariable("id") Long id){
+    public ResponseEntity<Response> deleteProwadzacy(@PathVariable("id") Long id){
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
@@ -69,7 +68,7 @@ public class ProwadzacyResource {
     }
 
     @PutMapping("/add/{id}")
-    public ResponseEntity<Response> updateStudent(@PathVariable("id") Long id,
+    public ResponseEntity<Response> updateProwadzacy(@PathVariable("id") Long id,
                                                   @RequestBody @Valid Prowadzacy prowadzacy) {
         return ResponseEntity.ok(
                 Response.builder()
