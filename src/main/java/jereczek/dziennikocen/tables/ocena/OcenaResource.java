@@ -2,10 +2,6 @@ package jereczek.dziennikocen.tables.ocena;
 
 import jakarta.validation.Valid;
 import jereczek.dziennikocen.domain.Response;
-import jereczek.dziennikocen.tables.kierunek.Kierunek;
-import jereczek.dziennikocen.tables.prowadzacy.Prowadzacy;
-import jereczek.dziennikocen.tables.przedmiot.Przedmiot;
-import jereczek.dziennikocen.tables.student.Student;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,36 +41,36 @@ public class OcenaResource {
                         .build()
         );
     }
-    @GetMapping("/list?prowadzacy")
-    public ResponseEntity<Response> getOcenyByProwadzacy(@RequestBody @Valid Prowadzacy prowadzacy){
+    @GetMapping("/list/prowadzacy")
+    public ResponseEntity<Response> getOcenyByProwadzacy(@RequestParam("id") Long idProwadz){
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
-                        .data(Map.of("ocena", ocenaService.listOcenaByProwadzacy(prowadzacy,50)))
+                        .data(Map.of("ocena", ocenaService.listOcenaByProwadzacy(idProwadz,50)))
                         .message("oceny retrieved")
                         .status(HttpStatus.OK)
                         .statusCode(HttpStatus.OK.value())
                         .build()
         );
     }
-    @GetMapping("/list?przedmiot")
-    public ResponseEntity<Response> getOcenyByPrzedmiot(@RequestBody @Valid Przedmiot przedmiot){
+    @GetMapping("/list/przedmiot")
+    public ResponseEntity<Response> getOcenyByPrzedmiot(@RequestParam("id") Long idPrzedmiotu){
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
-                        .data(Map.of("ocena", ocenaService.listOcenaByPrzedmiot(przedmiot,50)))
+                        .data(Map.of("ocena", ocenaService.listOcenaByPrzedmiot(idPrzedmiotu,50)))
                         .message("oceny retrieved")
                         .status(HttpStatus.OK)
                         .statusCode(HttpStatus.OK.value())
                         .build()
         );
     }
-    @GetMapping("/list?student")
-    public ResponseEntity<Response> getOcenyByStudent(@RequestBody @Valid Student student){
+    @GetMapping("/list/student")
+    public ResponseEntity<Response> getOcenyByStudent(@RequestParam("id") int id){
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
-                        .data(Map.of("ocena", ocenaService.listOcenaByStudent(student,50)))
+                        .data(Map.of("ocena", ocenaService.listOcenaByStudent(id,50)))
                         .message("oceny retrieved")
                         .status(HttpStatus.OK)
                         .statusCode(HttpStatus.OK.value())

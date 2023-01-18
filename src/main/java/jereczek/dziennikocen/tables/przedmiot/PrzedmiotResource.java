@@ -2,8 +2,6 @@ package jereczek.dziennikocen.tables.przedmiot;
 
 import jakarta.validation.Valid;
 import jereczek.dziennikocen.domain.Response;
-import jereczek.dziennikocen.tables.kierunek.Kierunek;
-import jereczek.dziennikocen.tables.prowadzacy.Prowadzacy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,24 +42,24 @@ public class PrzedmiotResource {
                         .build()
         );
     }
-    @GetMapping("/list?prowadzacy")
-    public ResponseEntity<Response> getPrzedmiotyByProwadzacy(@RequestBody @Valid Prowadzacy prowadzacy){
+    @GetMapping("/list/prowadzacy")
+    public ResponseEntity<Response> getPrzedmiotyByProwadzacy(@RequestParam("id") Long id){
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
-                        .data(Map.of("przedmiot", przedmiotService.listPrzedmiotyByProwadzacy(prowadzacy,50)))
+                        .data(Map.of("przedmiot", przedmiotService.listPrzedmiotyByProwadzacy(id,50)))
                         .message("przedmioty retrieved")
                         .status(HttpStatus.OK)
                         .statusCode(HttpStatus.OK.value())
                         .build()
         );
     }
-    @GetMapping("/list?kierunek")
-    public ResponseEntity<Response> getPrzedmiotyByKierunek(@RequestBody @Valid Kierunek kierunek){
+    @GetMapping("/list/kierunek")
+    public ResponseEntity<Response> getPrzedmiotyByKierunek(@RequestParam("nazwa") String nazwaKierunku){
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
-                        .data(Map.of("przedmiot", przedmiotService.listPrzedmiotyByKierunek(kierunek,50)))
+                        .data(Map.of("przedmiot", przedmiotService.listPrzedmiotyByKierunek(nazwaKierunku,50)))
                         .message("przedmioty retrieved")
                         .status(HttpStatus.OK)
                         .statusCode(HttpStatus.OK.value())

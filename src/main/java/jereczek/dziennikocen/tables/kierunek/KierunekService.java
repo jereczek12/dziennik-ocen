@@ -1,7 +1,5 @@
 package jereczek.dziennikocen.tables.kierunek;
 
-import jereczek.dziennikocen.tables.student.Student;
-
 import java.util.Collection;
 
 public interface KierunekService {

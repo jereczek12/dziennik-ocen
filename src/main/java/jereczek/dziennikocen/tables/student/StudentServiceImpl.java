@@ -1,8 +1,6 @@
 package jereczek.dziennikocen.tables.student;
 
 import jakarta.transaction.Transactional;
-
-import jereczek.dziennikocen.tables.kierunek.KierunekRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -16,7 +14,6 @@ import java.util.Collection;
 @Slf4j
 public class StudentServiceImpl implements StudentService {
     private final StudentRepo studentRepo;
-    private final KierunekRepo kierunekRepo;
 
     @Override
     public Student addStudent(Student student) {

@@ -2,8 +2,6 @@ package jereczek.dziennikocen.tables.kierunek;
 
 import jakarta.validation.Valid;
 import jereczek.dziennikocen.domain.Response;
-import jereczek.dziennikocen.tables.student.Student;
-import jereczek.dziennikocen.tables.student.StudentServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

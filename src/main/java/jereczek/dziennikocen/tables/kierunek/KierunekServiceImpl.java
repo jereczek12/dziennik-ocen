@@ -1,7 +1,6 @@
 package jereczek.dziennikocen.tables.kierunek;
 
 import jakarta.transaction.Transactional;
-import jereczek.dziennikocen.tables.student.Student;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;

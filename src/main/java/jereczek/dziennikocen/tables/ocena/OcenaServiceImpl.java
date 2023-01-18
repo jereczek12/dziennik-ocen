@@ -1,10 +1,6 @@
 package jereczek.dziennikocen.tables.ocena;
 
 import jakarta.transaction.Transactional;
-import jereczek.dziennikocen.tables.kierunek.Kierunek;
-import jereczek.dziennikocen.tables.prowadzacy.Prowadzacy;
-import jereczek.dziennikocen.tables.przedmiot.Przedmiot;
-import jereczek.dziennikocen.tables.student.Student;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -37,21 +33,21 @@ public class OcenaServiceImpl implements OcenaService{
     }
 
     @Override
-    public Collection<Ocena> listOcenaByPrzedmiot(Przedmiot przedmiot, int limit) {
-        log.info("Wyszukiwanie wszystkich ocen z przedmiotu: {}", przedmiot);
-        return ocenaRepo.findByPrzedmiot(przedmiot,PageRequest.of(0, limit));
+    public Collection<Ocena> listOcenaByPrzedmiot(Long id, int limit) {
+        log.info("Wyszukiwanie wszystkich ocen z przedmiotu: {}", id);
+        return ocenaRepo.findByPrzedmiot_IdPrzedmiotu(id,PageRequest.of(0, limit));
     }
 
     @Override
-    public Collection<Ocena> listOcenaByProwadzacy(Prowadzacy prowadzacy, int limit) {
-        log.info("Wyszukiwanie wszystkich ocen prowadzacego: {}", prowadzacy);
-        return ocenaRepo.findByProwadzacy(prowadzacy,PageRequest.of(0, limit));
+    public Collection<Ocena> listOcenaByProwadzacy(Long idProwadz, int limit) {
+        log.info("Wyszukiwanie wszystkich ocen prowadzacego: {}", idProwadz);
+        return ocenaRepo.findByProwadzacy_IdProwadz(idProwadz,PageRequest.of(0, limit));
     }
 
     @Override
-    public Collection<Ocena> listOcenaByStudent(Student student, int limit) {
-        log.info("Wyszukiwanie wszystkich ocen studenta: {}", student.getImie() + " " + student.getNazwisko());
-        return ocenaRepo.findByStudent(student,PageRequest.of(0, limit));
+    public Collection<Ocena> listOcenaByStudent(int id, int limit) {
+        log.info("Wyszukiwanie wszystkich ocen studenta: {}", id);
+        return ocenaRepo.findByStudent_NrIndeksu(id,PageRequest.of(0, limit));
     }
 
     @Override

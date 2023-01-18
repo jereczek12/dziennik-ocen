@@ -1,17 +1,13 @@
 package jereczek.dziennikocen.tables.ocena;
 
-import jereczek.dziennikocen.tables.prowadzacy.Prowadzacy;
-import jereczek.dziennikocen.tables.przedmiot.Przedmiot;
-import jereczek.dziennikocen.tables.student.Student;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Collection;
 import java.util.List;
 
 public interface OcenaRepo extends JpaRepository<Ocena, Long> {
     Ocena findOcenaById(Long id);
-    List<Ocena> findByProwadzacy(Prowadzacy prowadzacy, Pageable pageable);
-    List<Ocena> findByPrzedmiot(Przedmiot przedmiot, Pageable pageable);
-    List<Ocena> findByStudent(Student student, Pageable pageable);
+    List<Ocena> findByProwadzacy_IdProwadz(Long idProwadz, Pageable pageable);
+    List<Ocena> findByPrzedmiot_IdPrzedmiotu(Long idPrzedmiot, Pageable pageable);
+    List<Ocena> findByStudent_NrIndeksu(int indeks, Pageable pageable);
 }

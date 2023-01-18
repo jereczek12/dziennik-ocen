@@ -1,8 +1,6 @@
 package jereczek.dziennikocen.tables.przedmiot;
 
 import jakarta.transaction.Transactional;
-import jereczek.dziennikocen.tables.kierunek.Kierunek;
-import jereczek.dziennikocen.tables.prowadzacy.Prowadzacy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -30,15 +28,15 @@ public class PrzedmiotServiceImpl implements PrzedmiotService{
     }
 
     @Override
-    public Collection<Przedmiot> listPrzedmiotyByKierunek(Kierunek kierunek, int limit) {
-        log.info("Wyszukiwanie wszystkich przedmiotów na kierunku: {}", kierunek);
-        return przedmiotRepo.findAllByKierunek(kierunek,PageRequest.of(0, limit));
+    public Collection<Przedmiot> listPrzedmiotyByKierunek(String nazwa_kier, int limit) {
+        log.info("Wyszukiwanie wszystkich przedmiotów na kierunku: {}", nazwa_kier);
+        return przedmiotRepo.findAllByKierunek_NazwaKier(nazwa_kier,PageRequest.of(0, limit));
     }
 
     @Override
-    public Collection<Przedmiot> listPrzedmiotyByProwadzacy(Prowadzacy prowadzacy, int limit) {
-        log.info("Wyszukiwanie wszystkich przedmiotów prowadzacego: {}", prowadzacy);
-        return przedmiotRepo.findAllByProwadzacy(prowadzacy,PageRequest.of(0, limit));
+    public Collection<Przedmiot> listPrzedmiotyByProwadzacy(Long id, int limit) {
+        log.info("Wyszukiwanie wszystkich przedmiotów prowadzacego: {}", id);
+        return przedmiotRepo.findAllByProwadzacy_IdProwadz(id,PageRequest.of(0, limit));
     }
 
     @Override
