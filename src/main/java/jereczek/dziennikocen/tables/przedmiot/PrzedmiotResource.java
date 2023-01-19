@@ -12,12 +12,12 @@ import java.util.Map;
 import static java.time.LocalDateTime.now;
 
 @RestController
-@RequestMapping("/przedmiot")
+@RequestMapping("/przedmioty")
 @RequiredArgsConstructor
 public class PrzedmiotResource {
     private final PrzedmiotServiceImpl przedmiotService;
 
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<Response> addPrzedmiot(@RequestBody @Valid Przedmiot przedmiot) {
         return ResponseEntity.ok(
                 Response.builder()
@@ -30,32 +30,18 @@ public class PrzedmiotResource {
         );
     }
 
-    @GetMapping("/list")
-    public ResponseEntity<Response> getAllPrzedmioty(){
-        return ResponseEntity.ok(
-                Response.builder()
-                        .timeStamp(now())
-                        .data(Map.of("przedmioty", przedmiotService.listPrzedmioty(20)))
-                        .message("przedmiot retrieved")
-                        .status(HttpStatus.OK)
-                        .statusCode(HttpStatus.OK.value())
-                        .build()
-        );
+    @GetMapping()
+    public ResponseEntity<Response> getPrzedmioty(@RequestParam(name="nazwa-kierunku",required = false) String nazwaKier,
+                                                  @RequestParam(name="id-prowadz", required = false)Long idProwadz){
+        if (nazwaKier!=null && idProwadz!=null)
+            return getPrzedmiotByKierunekAndProwadzacy(nazwaKier, idProwadz);
+        if (nazwaKier!=null)
+            return getPrzedmiotyByKierunek(nazwaKier);
+        if (idProwadz!=null)
+            return getPrzedmiotyByProwadzacy(idProwadz);
+        else return getAllPrzedmioty();
     }
-    @GetMapping("/list/prowadzacy")
-    public ResponseEntity<Response> getPrzedmiotyByProwadzacy(@RequestParam("id") Long id){
-        return ResponseEntity.ok(
-                Response.builder()
-                        .timeStamp(now())
-                        .data(Map.of("przedmiot", przedmiotService.listPrzedmiotyByProwadzacy(id,50)))
-                        .message("przedmioty retrieved")
-                        .status(HttpStatus.OK)
-                        .statusCode(HttpStatus.OK.value())
-                        .build()
-        );
-    }
-    @GetMapping("/list/kierunek")
-    public ResponseEntity<Response> getPrzedmiotyByKierunek(@RequestParam("nazwa") String nazwaKierunku){
+    public ResponseEntity<Response> getPrzedmiotyByKierunek(String nazwaKierunku){
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
@@ -66,7 +52,7 @@ public class PrzedmiotResource {
                         .build()
         );
     }
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Response> getPrzedmiot(@PathVariable("id") Long id){
         return ResponseEntity.ok(
                 Response.builder()
@@ -78,7 +64,7 @@ public class PrzedmiotResource {
                         .build()
         );
     }
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Response> deleteOcena(@PathVariable("id") Long id){
         return ResponseEntity.ok(
                 Response.builder()
@@ -90,7 +76,7 @@ public class PrzedmiotResource {
                         .build()
         );
     }
-    @PutMapping("/add/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Response> updateStudent(@PathVariable("id") Long id,
                                                   @RequestBody @Valid Przedmiot przedmiot ) {
         return ResponseEntity.ok(
@@ -104,4 +90,37 @@ public class PrzedmiotResource {
         );
     }
 
+    public ResponseEntity<Response> getPrzedmiotByKierunekAndProwadzacy(String nazwaKier, Long idProwadz){
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(Map.of("przedmioty", przedmiotService.listPrzedmiotyByKierunekAndProwadzacy(nazwaKier, idProwadz,20)))
+                        .message("przedmioty retrieved")
+                        .status(HttpStatus.OK)
+                        .statusCode(HttpStatus.OK.value())
+                        .build()
+        );
+    }
+    public ResponseEntity<Response> getPrzedmiotyByProwadzacy(Long id){
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(Map.of("przedmiot", przedmiotService.listPrzedmiotyByProwadzacy(id,50)))
+                        .message("przedmioty retrieved")
+                        .status(HttpStatus.OK)
+                        .statusCode(HttpStatus.OK.value())
+                        .build()
+        );
+    }
+    public ResponseEntity<Response> getAllPrzedmioty(){
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(Map.of("przedmioty", przedmiotService.listPrzedmioty(20)))
+                        .message("przedmioty retrieved")
+                        .status(HttpStatus.OK)
+                        .statusCode(HttpStatus.OK.value())
+                        .build()
+        );
+    }
 }

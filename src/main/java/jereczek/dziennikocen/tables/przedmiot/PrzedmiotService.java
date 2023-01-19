@@ -7,6 +7,7 @@ public interface PrzedmiotService {
     Collection<Przedmiot> listPrzedmioty(int limit);
     Collection<Przedmiot> listPrzedmiotyByKierunek(String nazwa_kier, int limit);
     Collection<Przedmiot> listPrzedmiotyByProwadzacy(Long id, int limit);
+    Collection<Przedmiot> listPrzedmiotyByKierunekAndProwadzacy(String nazwaKier, Long id, int limit);
     Przedmiot getPrzedmiotById(Long id);
     Boolean deleteById(Long id);
     Przedmiot updateById(Long id, Przedmiot przedmiot);

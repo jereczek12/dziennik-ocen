@@ -9,6 +9,7 @@ public interface PrzedmiotRepo extends JpaRepository<Przedmiot, Long> {
     Przedmiot findByIdPrzedmiotu(Long id);
     List<Przedmiot> findAllByProwadzacy_IdProwadz(Long id, Pageable pageable);
     List<Przedmiot> findAllByKierunek_NazwaKier(String nazwa_kier, Pageable pageable);
+    List<Przedmiot> findAllByKierunek_NazwaKierAndProwadzacy_IdProwadz(String nazwa_kier, Long id, Pageable pageable);
 
 
 }

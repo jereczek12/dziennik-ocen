@@ -40,6 +40,12 @@ public class PrzedmiotServiceImpl implements PrzedmiotService{
     }
 
     @Override
+    public Collection<Przedmiot> listPrzedmiotyByKierunekAndProwadzacy(String nazwaKier, Long id, int limit) {
+        log.info("Wyszukiwanie pprzedmiotów po kireunku: {} i prowadzacym: {}",nazwaKier, id);
+        return przedmiotRepo.findAllByKierunek_NazwaKierAndProwadzacy_IdProwadz(nazwaKier, id,PageRequest.of(0, limit));
+    }
+
+    @Override
     public Przedmiot getPrzedmiotById(Long id) {
         log.info("wyszukiwanie przedmiotu: {}",id);
         return przedmiotRepo.findByIdPrzedmiotu(id);    }

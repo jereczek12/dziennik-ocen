@@ -17,7 +17,7 @@ public class Przedmiot {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPrzedmiotu;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "nazwa_kier", nullable = false, referencedColumnName = "nazwa_kier")
     private Kierunek kierunek;
 
