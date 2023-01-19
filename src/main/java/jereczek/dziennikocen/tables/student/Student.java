@@ -36,5 +36,5 @@ public class Student {
     inverseJoinColumns = {
             @JoinColumn(name = "nazwa_kier", referencedColumnName = "nazwa_kier")
     })
-    private Set<Kierunek> kierunekSet;
+    private Set<Kierunek> kierunki;
 }

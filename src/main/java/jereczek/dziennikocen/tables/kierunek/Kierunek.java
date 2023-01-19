@@ -23,6 +23,6 @@ public class Kierunek {
     @JoinColumn(name = "nazwa_wydzialu", nullable = false, referencedColumnName = "nazwa_wydzialu")
     private Wydzial wydzial;
 
-    @ManyToMany(mappedBy = "kierunekSet", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "kierunki", fetch = FetchType.LAZY)
     private Set<Student> students;
 }

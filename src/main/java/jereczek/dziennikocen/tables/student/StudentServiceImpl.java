@@ -47,7 +47,7 @@ public class StudentServiceImpl implements StudentService {
         if(student.getNazwisko()!=null) updatedStudent.setNazwisko(student.getNazwisko());
         if(student.getEmail()!=null) updatedStudent.setEmail(student.getEmail());
         if(student.getNrTelefonu()!=null) updatedStudent.setNrTelefonu(student.getNrTelefonu());
-        if(student.getKierunekSet()!=null) updatedStudent.setKierunekSet(student.getKierunekSet());
+        if(student.getKierunki()!=null) updatedStudent.setKierunki(student.getKierunki());
         return studentRepo.save(updatedStudent);
     }
 }
