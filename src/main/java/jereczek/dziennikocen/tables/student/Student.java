@@ -1,5 +1,6 @@
 package jereczek.dziennikocen.tables.student;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jereczek.dziennikocen.tables.kierunek.Kierunek;
 import lombok.AllArgsConstructor;
@@ -7,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Data
@@ -27,14 +28,15 @@ public class Student {
     private LocalDate data_rozpoczecia;
     private LocalDate data_zakonczenia;
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name="student_kierunek",
     joinColumns = {
-            @JoinColumn(name = "nr_indeksu", referencedColumnName = "nr_indeksu"),
-
-    },
+            @JoinColumn(name = "nr_indeksu",
+                    referencedColumnName = "nr_indeksu")},
     inverseJoinColumns = {
-            @JoinColumn(name = "nazwa_kier", referencedColumnName = "nazwa_kier")
+            @JoinColumn(name = "nazwa_kier",
+                    referencedColumnName = "nazwa_kier")
     })
-    private Set<Kierunek> kierunki;
+    @JsonIgnoreProperties(value = "students")
+    private List<Kierunek> kierunki;
 }

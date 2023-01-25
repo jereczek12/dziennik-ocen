@@ -1,5 +1,6 @@
 package jereczek.dziennikocen.tables.kierunek;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jereczek.dziennikocen.tables.student.Student;
 import jereczek.dziennikocen.tables.wydzial.Wydzial;
@@ -7,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Data
@@ -23,6 +24,8 @@ public class Kierunek {
     @JoinColumn(name = "nazwa_wydzialu", nullable = false, referencedColumnName = "nazwa_wydzialu")
     private Wydzial wydzial;
 
-    @ManyToMany(mappedBy = "kierunki", fetch = FetchType.LAZY)
-    private Set<Student> students;
+    @ManyToMany(mappedBy = "kierunki", fetch = FetchType.LAZY
+    )
+    @JsonIgnoreProperties(value = "kierunki")
+    private List<Student> students;
 }

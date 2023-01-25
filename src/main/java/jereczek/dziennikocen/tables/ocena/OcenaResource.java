@@ -103,7 +103,7 @@ public class OcenaResource {
         );
     }
     @PutMapping("/add/{id}")
-    public ResponseEntity<Response> updateStudent(@PathVariable("id") Long id,
+    public ResponseEntity<Response> updateOcena(@PathVariable("id") Long id,
                                                   @RequestBody @Valid Ocena ocena) {
         return ResponseEntity.ok(
                 Response.builder()

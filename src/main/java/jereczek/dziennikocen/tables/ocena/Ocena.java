@@ -1,5 +1,6 @@
 package jereczek.dziennikocen.tables.ocena;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jereczek.dziennikocen.tables.prowadzacy.Prowadzacy;
 import jereczek.dziennikocen.tables.przedmiot.Przedmiot;
@@ -21,10 +22,12 @@ public class Ocena {
 
     @ManyToOne()
     @JoinColumn(name = "id_prowadz", referencedColumnName = "id_prowadz", nullable = false)
+    @JsonIgnoreProperties(value = "przedmiot")
     private Prowadzacy prowadzacy;
 
     @ManyToOne()
     @JoinColumn(name = "id_przedmiotu", referencedColumnName = "id_przedmiotu", nullable = false)
+    @JsonIgnoreProperties(value = {"kierunek", "prowadzacy"})
     private Przedmiot przedmiot;
 
     @ManyToOne()
