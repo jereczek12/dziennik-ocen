@@ -6,6 +6,7 @@ import jereczek.dziennikocen.tables.prowadzacy.Prowadzacy;
 import jereczek.dziennikocen.tables.przedmiot.Przedmiot;
 import jereczek.dziennikocen.tables.student.Student;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,11 +14,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Table(name="Ocena")
 public class Ocena {
     @Id
     @Column(name="id_ocena")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne()
@@ -37,4 +39,12 @@ public class Ocena {
     @Column(name = "ocena", nullable=false)
     private Integer ocena;
 
+    @Column(name = "zdjecie")
+    private String zdjecie;
+
+    @Column
+    private String kategoria;
+
+    @Column
+    private String komentarz;
 }

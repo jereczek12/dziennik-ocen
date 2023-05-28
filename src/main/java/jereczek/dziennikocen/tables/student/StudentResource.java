@@ -12,6 +12,7 @@ import java.util.Map;
 import static java.time.LocalDateTime.now;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/student")
 @RequiredArgsConstructor
 public class StudentResource {
@@ -35,7 +36,7 @@ public class StudentResource {
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
-                        .data(Map.of("wydzialy", studentService.listStudents(50)))
+                        .data(Map.of("students", studentService.listStudents(50)))
                         .message("Students retrieved")
                         .status(HttpStatus.OK)
                         .statusCode(HttpStatus.OK.value())

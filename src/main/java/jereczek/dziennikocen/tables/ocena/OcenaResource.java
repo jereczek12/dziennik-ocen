@@ -3,22 +3,31 @@ package jereczek.dziennikocen.tables.ocena;
 import jakarta.validation.Valid;
 import jereczek.dziennikocen.domain.Response;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.Map;
 
 import static java.time.LocalDateTime.now;
 
 @RestController
 @RequestMapping("/ocena")
+@CrossOrigin
+@Slf4j
 @RequiredArgsConstructor
 public class OcenaResource {
     private final OcenaServiceImpl ocenaService;
+    private final OcenaDTOMapper ocenaDTOMapper;
 
+    @CrossOrigin
     @PostMapping("/add")
-    public ResponseEntity<Response> addOcena(@RequestBody @Valid Ocena ocena) {
+    public ResponseEntity<Response> addOcena(@RequestBody OcenaDTO ocenaDTO) {
+        log.info("endpoint dodania oceny");
+        Ocena ocena;
+            ocena = ocenaDTOMapper.mapOcenaDtoToOcena(ocenaDTO);
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
@@ -70,7 +79,7 @@ public class OcenaResource {
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
-                        .data(Map.of("ocena", ocenaService.listOcenaByStudent(id,50)))
+                        .data(Map.of("ocena", ocenaService.listOcenaByStudent(id,1000)))
                         .message("oceny retrieved")
                         .status(HttpStatus.OK)
                         .statusCode(HttpStatus.OK.value())

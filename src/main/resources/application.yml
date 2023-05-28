@@ -1,9 +1,10 @@
 spring:
   datasource:
-    password: 12345
-    username: szrbd
-    url: jdbc:postgresql://localhost:5432/dziennikocen
+    password: inwester21
+    username: postgres
+    url: jdbc:postgresql://localhost:5433/dziennikocen
   jpa:
+    generate-ddl: true
     hibernate:
       ddl-auto: none
     properties:

@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class Prowadzacy {
     @Id
     @Column(name="id_prowadz")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProwadz;
 
 

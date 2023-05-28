@@ -13,6 +13,7 @@ import static java.time.LocalDateTime.now;
 
 @RestController
 @RequestMapping("/przedmioty")
+@CrossOrigin
 @RequiredArgsConstructor
 public class PrzedmiotResource {
     private final PrzedmiotServiceImpl przedmiotService;
