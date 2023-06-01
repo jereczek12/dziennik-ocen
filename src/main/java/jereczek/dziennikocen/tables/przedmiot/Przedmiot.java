@@ -21,8 +21,8 @@ public class Przedmiot {
     @JoinColumn(name = "nazwa_kier", nullable = false, referencedColumnName = "nazwa_kier")
     private Kierunek kierunek;
 
-    @Column(nullable = false)
-    private String nazwa_przedmiotu;
+    @Column(nullable = false, name = "nazwa_przedmiotu")
+    private String nazwaPrzedmiotu;
 
     @ManyToOne
     @JoinColumn(name="id_prowadz", referencedColumnName = "id_prowadz")

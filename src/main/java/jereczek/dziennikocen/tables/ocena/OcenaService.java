@@ -11,6 +11,8 @@ public interface OcenaService {
 
     Collection<Ocena> listOcenaByStudent(int id, int limit);
 
+    Collection<Ocena> listOcenaByStudentAndPrzedmiot(int idStudent, Long idPrzedmiot, int limit);
+
     Boolean deleteById(Long id);
     Ocena updateById(Long id, Ocena ocena);
 

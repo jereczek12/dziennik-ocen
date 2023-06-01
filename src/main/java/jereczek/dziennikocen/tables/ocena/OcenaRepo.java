@@ -10,4 +10,5 @@ public interface OcenaRepo extends JpaRepository<Ocena, Long> {
     List<Ocena> findByProwadzacy_IdProwadz(Long idProwadz, Pageable pageable);
     List<Ocena> findByPrzedmiot_IdPrzedmiotu(Long idPrzedmiot, Pageable pageable);
     List<Ocena> findByStudent_NrIndeksu(int indeks, Pageable pageable);
+    List<Ocena> findByStudent_NrIndeksuAndPrzedmiot_IdPrzedmiotu(int indeks, Long idPrzedmioty, Pageable pageable);
 }

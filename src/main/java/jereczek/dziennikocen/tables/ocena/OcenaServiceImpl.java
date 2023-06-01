@@ -51,6 +51,12 @@ public class OcenaServiceImpl implements OcenaService{
     }
 
     @Override
+    public Collection<Ocena> listOcenaByStudentAndPrzedmiot(int idStudent, Long idPrzedmiot, int limit) {
+        log.info("Wyszukiwanie wszystkich ocen studenta: {} z przedmiotu: {}", idStudent, idPrzedmiot);
+        return ocenaRepo.findByStudent_NrIndeksuAndPrzedmiot_IdPrzedmiotu(idStudent, idPrzedmiot,PageRequest.of(0, limit));
+    }
+
+    @Override
     public Boolean deleteById(Long id) {
         log.info("Usuwanie oceny: {}", id);
         ocenaRepo.deleteById(id);

@@ -86,6 +86,19 @@ public class OcenaResource {
                         .build()
         );
     }
+    @GetMapping("/list/studentAndPrzedmiot")
+    public ResponseEntity<Response> getOcenyByStudentAndProwadzacy(@RequestParam("id") int idStudneta,
+                                                                   @RequestParam("przedmiot") Long idPrzedmiotu){
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(Map.of("ocena", ocenaService.listOcenaByStudentAndPrzedmiot(idStudneta, idPrzedmiotu,1000)))
+                        .message("oceny retrieved")
+                        .status(HttpStatus.OK)
+                        .statusCode(HttpStatus.OK.value())
+                        .build()
+        );
+    }
     @GetMapping("/get/{id}")
     public ResponseEntity<Response> getOcena(@PathVariable("id") Long id){
         return ResponseEntity.ok(

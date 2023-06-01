@@ -17,7 +17,7 @@ public class PrzedmiotServiceImpl implements PrzedmiotService{
     private final PrzedmiotRepo przedmiotRepo;
     @Override
     public Przedmiot addPrzedmiot(Przedmiot przedmiot) {
-        log.info("Dodawanie przedmiotu : {}", przedmiot.getNazwa_przedmiotu());
+        log.info("Dodawanie przedmiotu : {}", przedmiot.getNazwaPrzedmiotu());
         return przedmiotRepo.save(przedmiot);
     }
 
@@ -61,8 +61,8 @@ public class PrzedmiotServiceImpl implements PrzedmiotService{
     public Przedmiot updateById(Long id, Przedmiot przedmiot) {
         log.info("Aktualizowanie informacji o przedmiocie: {}", id);
         Przedmiot updatedPrzedmiot = przedmiotRepo.findByIdPrzedmiotu(id);
-        if(przedmiot.getNazwa_przedmiotu()!=null)
-            updatedPrzedmiot.setNazwa_przedmiotu(przedmiot.getNazwa_przedmiotu());
+        if(przedmiot.getNazwaPrzedmiotu()!=null)
+            updatedPrzedmiot.setNazwaPrzedmiotu(przedmiot.getNazwaPrzedmiotu());
         if(przedmiot.getKierunek()!=null)
             updatedPrzedmiot.setKierunek(przedmiot.getKierunek());
         if(przedmiot.getProwadzacy()!=null)
