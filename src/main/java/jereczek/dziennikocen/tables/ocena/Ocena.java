@@ -10,6 +10,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -47,4 +49,7 @@ public class Ocena {
 
     @Column
     private String komentarz;
+
+    @Column(name = "data_dodania")
+    private LocalDate dataDodania;
 }

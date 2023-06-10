@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.Map;
 
 import static java.time.LocalDateTime.now;
@@ -87,8 +86,8 @@ public class OcenaResource {
         );
     }
     @GetMapping("/list/studentAndPrzedmiot")
-    public ResponseEntity<Response> getOcenyByStudentAndProwadzacy(@RequestParam("id") int idStudneta,
-                                                                   @RequestParam("przedmiot") Long idPrzedmiotu){
+    public ResponseEntity<Response> getOcenyByStudentAndPrzedmiot(@RequestParam("id") int idStudneta,
+                                                                  @RequestParam("przedmiot") Long idPrzedmiotu){
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())

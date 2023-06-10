@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 @RequiredArgsConstructor
 public class OcenaDTOMapper {
@@ -33,6 +35,7 @@ public class OcenaDTOMapper {
         ocena.setZdjecie(ocenaDTO.getZdjecie());
         ocena.setKategoria(ocenaDTO.getKategoria());
         ocena.setKomentarz(ocenaDTO.getKomentarz());
+        ocena.setDataDodania(LocalDate.now());
         return ocena;
     }
 }
