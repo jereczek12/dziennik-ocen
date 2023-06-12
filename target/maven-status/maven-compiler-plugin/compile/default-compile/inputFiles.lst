@@ -18,11 +18,13 @@ E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dz
 E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dziennikocen\domain\Response.java
 E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dziennikocen\tables\przedmiot\PrzedmiotResource.java
 E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dziennikocen\tables\kierunek\KierunekRepo.java
+E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dziennikocen\tables\ocena\OcenaDTO.java
 E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dziennikocen\tables\prowadzacy\ProwadzacyResource.java
 E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dziennikocen\tables\wydzial\WydzialRepo.java
 E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dziennikocen\tables\ocena\OcenaRepo.java
 E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dziennikocen\tables\student\StudentServiceImpl.java
 E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dziennikocen\tables\kierunek\KierunekServiceImpl.java
+E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dziennikocen\tables\ocena\OcenaDTOMapper.java
 E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dziennikocen\tables\wydzial\WydzialService.java
 E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dziennikocen\tables\ocena\OcenaResource.java
 E:\Programowanie\Java\IntelliJ workspace\dziennik-ocen\src\main\java\jereczek\dziennikocen\tables\student\StudentService.java
