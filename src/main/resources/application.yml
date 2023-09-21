@@ -1,8 +1,8 @@
 spring:
   datasource:
-    password: bdEZesDenNkHnlmyrWMkhHszOHiT8kmZ
-    username: szymon
-    url: jdbc:postgresql://dpg-ci3isj67avj2t32p2dmg-a.frankfurt-postgres.render.com:5432/dziennikocen
+    password: g8IoFyBeLcM9sj8A
+    username: postgres
+    url: jdbc:postgresql://db.cqcrikkoowsgmupuzmrb.supabase.co:5432/postgres
   jpa:
     generate-ddl: true
     hibernate:
